@@ -1,9 +1,9 @@
-const SUPABASE_URL = "https://sdorkxwgzdynyjnkmpzi.supabase.co";//SupabaseのURL
-const SUPABASE_KEY = "sb_publishable_Mttjc-U-xVtUP9hYBblLdA_jQpHrUUN";//supabaseの公開鍵
+const SUPABASE_URL = "https://dlmaujcsjgapzszwxwhf.supabase.co";//SupabaseのURL
+const SUPABASE_KEY = "sb_publishable_yW4Z8TyHfKHhQjV0g7SlnA_QAvBwkdP";//supabaseの公開鍵
 
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-const animalList = document.getElementById("animalList");//出力用の変数。animallistはindex.html参照
+const animalList = document.getElementById("rui_animal");//出力用の変数。animallistはindex.html参照
 const animalForm = document.getElementById("animalForm");//動物登録用。()の中身は上と同様から参照
 const submitButton = document.getElementById("submitButton");
 const message = document.getElementById("message");
@@ -38,7 +38,7 @@ async function loadAnimals() {
         div.className = "animal";
 
         // textContentを使い、入力された文字がHTMLとして実行されないようにする
-        const title = document.createElement("h3");//タグ生成
+        const title = document.createElement("h3");//タグ生成                        
         title.textContent = animal.name;//<h3>動物の名前</h3>←こんな感じになる
 
         const area = document.createElement("p");//タグ生成
