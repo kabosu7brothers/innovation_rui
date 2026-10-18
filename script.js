@@ -18,9 +18,7 @@ function showMessage(text, isError = false) {
 async function loadAnimals() {
     const { data, error } = await supabaseClient//await=この処理が終わるまで待って！
         .from("rui_animal")//どのデータベースから？→animal
-        .delete()
-        .eq("id",1)
-        .select();//どれを選ぶの？→*(全部)
+        .select("*");//どれを選ぶの？→*(全部)
 
     if (error) {//エラーが出たら？
         console.error(error);
