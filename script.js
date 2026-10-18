@@ -3,7 +3,7 @@ const SUPABASE_KEY = "sb_publishable_yW4Z8TyHfKHhQjV0g7SlnA_QAvBwkdP";//supabase
 
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-const animalList = document.getElementById("rui_animal");//出力用の変数。animallistはindex.html参照
+const animalList = document.getElementById("animalList");//出力用の変数。animallistはindex.html参照
 const animalForm = document.getElementById("animalForm");//動物登録用。()の中身は上と同様から参照
 const submitButton = document.getElementById("submitButton");
 const message = document.getElementById("message");
@@ -17,8 +17,10 @@ function showMessage(text, isError = false) {
 // 生物データを取得して表示(view.htmlでの処理)
 async function loadAnimals() {
     const { data, error } = await supabaseClient//await=この処理が終わるまで待って！
-        .from("animal")//どのデータベースから？→animal
-        .select("*");//どれを選ぶの？→*(全部)
+        .from("rui_animal")//どのデータベースから？→animal
+        .delete()
+        .eq("id"1)
+        .select();//どれを選ぶの？→*(全部)
 
     if (error) {//エラーが出たら？
         console.error(error);
